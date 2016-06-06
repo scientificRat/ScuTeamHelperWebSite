@@ -1,0 +1,731 @@
+/*
+* @autor 黄正跃
+* @create date 2016/2/15
+*/
+*{
+	box-sizing: border-box;
+}
+body {
+	margin: 0;
+	font-family: "微软雅黑", Helvetica, sans-serif, Arial;
+	font-size: 14px;
+	line-height: 25px;
+}
+.baseColorBack {
+	background-color: #313a3d;
+}
+.lightColorBack {
+	background-color: #fff;
+}
+.colorfulBack {
+	margin: 0;
+	padding: 0;
+	z-index: -100;
+	height: 100vh;
+	width: 100%;
+	background-attachment: fixed, fixed, fixed;
+	background-image: url("images/overlay2.png"), url("images/overlay3.svg"), linear-gradient(45deg, #9dc66b 5%, #4fa49a 30%, #4361c2);
+	background-position: top left, center center, center center;
+	background-size: auto, cover, cover;
+}
+.whiteColor{
+	color: white;
+}
+.leftFont{
+	text-align: left;
+}
+.blockItem{
+	display: block;
+}
+.onMouseWhite:hover{
+	background: #aaa;
+}
+
+
+
+h1, h2, h3, h4, h5, h6 {
+	color: #61686b;
+	font-weight: 800;
+	letter-spacing: 0.075em;
+	line-height: 1em;
+	margin: 0 0 1em 0;
+}
+h1 {
+	color: #FFFFFF;
+	font-size: 2.1em;
+	line-height: 1.25em;
+}
+/*h1 h2的下划线*/
+h1:after {
+	background: #dddddd;
+	content: '';
+	display: block;
+	height: 2px;
+	margin: 0.1em auto 0 auto;
+	position: relative;
+	width: 9em;
+}
+h2:after {
+	background: #dddddd;
+	content: '';
+	display: block;
+	height: 2px;
+	margin: 0.1em auto 0 auto;
+	position: relative;
+	width: 4em;
+}
+h9 {
+	font-size: 2em;
+}
+p.TitleDescreption{
+	color:white;
+}
+
+/*标题栏*/
+.titleBarBlank{
+	width: 100%;
+	height: 3em;
+	margin-bottom: 2px;
+}
+.titleBar{
+	width: 100%;
+	height: 3em;
+	background: #4361c2;
+	text-align: left;
+	box-shadow:1px 1px 4px rgba(0, 0, 0, 0.21);
+	margin-bottom: 2px;
+	position: fixed;
+	top:0px;
+}
+p.logo{
+	color: #fff;
+	font-size: 1.6em;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	margin-left: 10px;
+	padding: 9px;
+}
+
+
+/*左端导航栏*/
+.leftNavigator{
+	width: 280px;
+	height: 100vh;
+	background: RGBA(57, 57, 57, 0.9);
+	text-align: left;
+	padding: 0px 1px 0px 1px;
+	position: relative;
+	float: left;
+	
+}
+.leftHeader{
+	width: 100%;
+	padding: 10px 10px;
+	text-align: center;
+}
+.personal_info{
+	position: relative;
+	text-align: left;
+}
+.personal_info span{
+	color: white;
+	font-size: 19px;
+	position: absolute;
+	top:10px;
+	left: 60px;
+}
+img.menu_icon{
+	height: 30px;
+	position: absolute;
+	right: 0px;
+	top:2px;
+	
+}
+
+img.circlePicture{
+	border-radius: 100%;
+	width: 40px;	
+}
+.selector img{
+	height: 30px;
+	margin: 10px 23px;
+}
+.selector a{
+	display: inline-block;
+	position: relative;
+}
+/*.selector a:after{
+	display: none;
+	position: absolute;
+	content: "";
+	background: #71C894;
+	width: 100%;
+	height: 1px;
+	left: auto;
+	bottom: 0px;
+}*/
+.selector a:hover:after{
+	position: absolute;
+	content: "";
+	background: #aaa;
+	width: 100%;
+	height: 1px;
+	left: auto;
+	bottom: 0px;
+	display: block;
+	
+}
+/*#rasp_button:after{
+	display: none;
+	position: absolute;
+	content: "";
+	background: #71C894;
+	width: 100%;
+	height: 1px;
+	left: auto;
+	bottom: 0px;
+}*/
+
+input.search{
+	margin: 10px 0px !important;
+	width: 100% !important;
+	color: white !important;
+}
+
+/*cars panel*/
+div#cars{
+	display: block;
+}
+.car_item{
+	color: white;
+	margin: 10px 0px;
+	position: relative;
+	padding: 10px;
+	overflow: hidden;
+	cursor: pointer;
+}
+.car_item:hover{
+	background: #5d5d5d;
+}
+.car_item:active{
+	background: #4fa49a;
+}
+.car_item span{
+	display: block;
+	float: left;
+	margin-top:10px;
+	margin-left: 9px;
+
+}
+
+/*friends panel*/
+div#friends{
+	display: none;
+	overflow:hidden;
+}
+
+.friend_item{
+	color: white;
+	margin: 10px 0px;
+	position: relative;
+	padding: 10px;
+	overflow: hidden;
+	cursor: pointer;
+}
+.friend_item:hover{
+	background: #5d5d5d;
+}
+.friend_item:active{
+	background: #4fa49a;
+}
+.friend_item span{
+	display: block;
+	float: left;
+	margin-top:10px;
+	margin-left: 9px;
+}
+/*add panel*/
+#add{
+	text-align: center;
+	display: none;
+	overflow:hidden;
+}
+#add span{
+	color: #999;
+	padding: 20px;
+}
+
+.circle{
+	border-radius: 20px;
+	width:40px;
+	height:40px;
+	float:left;
+}
+.colorBlock1{
+	background: #4fa49a;
+}
+.colorBlock2{
+	background: #cecb00;
+}
+.colorBlock3{
+	background: #b72a34;
+}
+.colorBlock4{
+	background: #27b9e9;
+}
+.colorBlock5{
+	background: #a267ec;
+}
+.colorBlock6{
+	background: #61686b;
+}
+.online{
+	color: #999;
+}
+
+.offline{
+	color: #999;
+}
+
+
+/*右边的操作栏*/
+div.rightPanel{
+	background: #ddd;
+	max-width: 600px;
+	width:600px;
+	height: 100vh;
+	position: absolute;
+	left: 280px;
+	text-align: center;
+	
+}
+.rightPanel h2{
+	margin: 20px 0px 20px 0px;
+	font-size: 30px;
+	color: #3A4043;
+	
+}
+div.dashboard{
+	width: 400px;
+	margin: auto;
+	text-align: left;
+	position: relative;
+}
+#runtime_info{
+	text-align: left;
+    border: solid 1px #5f8965;
+	width: 60%;
+	margin: 2px 2px;
+	background: #fff;
+	border-radius: 5px;
+	overflow: hidden;
+	color: #aaa;
+	display: inline-table;
+}
+#runtime_info span{
+	position: relative;
+	left: 14px;
+}
+#runtime_info span:before{
+	position: absolute;
+	content: "";
+	left: -12px;
+	top:2px;
+	display: inline-block;
+	width: 10px;
+	height: 10px;
+	border-radius: 100%;
+	background: #227CC1;
+}
+
+div.runtime_info_title{
+	background: #5F8965;
+	text-align: left;
+	height: 30px;
+	color: white;
+	font: 10px;
+	padding: 5px;
+	overflow: hidden;
+}
+
+#pi_show img{
+	width:500px;
+	-webkit-transition:width 0.4s ease-in-out 0s;
+	-moz-transition:width 0.4s ease-in-out 0s;
+	transition:width 0.4s ease-in-out 0s;
+}
+#pi_show img:hover{
+	width:540px;
+	-webkit-transition:width 0.4s ease-in-out 0s;
+	-moz-transition:width 0.4s ease-in-out 0s;
+	transition:width 0.4s ease-in-out 0s;
+}
+.buttons_panel{
+	position: absolute;
+	right: 0px;
+	top:0px;
+	width: 35%;
+}
+.control_button{
+	display: block;
+	background: #227CC1;
+	padding: 6px;
+	border-radius: 2px;
+	color:#fff;
+	width: 100%;
+	margin-bottom: 10px;
+	text-align: center;
+	position: relative;
+	transform: translateZ(0);
+}
+.control_button::after{
+	content: "";
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	width: 0px;
+	height: 100%;
+	background: #3A4043;
+	-webkit-transition:width 0.3s ease 0s;
+	-moz-transition:width 0.3s ease 0s;
+	transition:width 0.3s ease 0s;
+	z-index: -1;
+}
+
+.control_button:hover::after{
+	content: "";
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	background: #3A4043;
+	-webkit-transition:width 0.6s cubic-bezier(0.52, 1.64, 0.37, 0.66) 0s;
+	-moz-transition:width 0.6s cubic-bezier(0.52, 1.64, 0.37, 0.66) 0s;
+	transition:width 0.6s cubic-bezier(0.52, 1.64, 0.37, 0.66) 0s;
+}
+
+.configuration_button{
+	display: block;
+	background: #227CC1;
+	padding: 6px;
+	border-radius: 2px;
+	color:#fff;
+	width: 100%;
+	margin-bottom: 10px;
+	text-align: center;
+	position: relative;
+	transform: translateZ(0);
+}
+.configuration_button::after{
+	content: "";
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	width: 0px;
+	height: 100%;
+	background: #3A4043;
+	-webkit-transition:width 0.3s ease 0s;
+	-moz-transition:width 0.3s ease 0s;
+	transition:width 0.3s ease 0s;
+	z-index: -1;
+}
+
+.configuration_button:hover::after{
+	content: "";
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	background: #3A4043;
+	-webkit-transition:width 0.6s cubic-bezier(0.52, 1.64, 0.37, 0.66) 0s;
+	-moz-transition:width 0.6s cubic-bezier(0.52, 1.64, 0.37, 0.66) 0s;
+	transition:width 0.6s cubic-bezier(0.52, 1.64, 0.37, 0.66) 0s;
+}
+.delete_button{
+	display: block;
+	background: #b72a34;
+	padding: 6px;
+	border-radius: 2px;
+	color:#fff;
+	width: 100%;
+	margin-bottom: 10px;
+	text-align: center;
+	position: relative;
+	transform: translateZ(0);
+}
+
+.delete_button::after{
+	content: "";
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	width: 0px;
+	height: 100%;
+	background: #3A4043;
+	-webkit-transition:width 0.3s ease 0s;
+	-moz-transition:width 0.3s ease 0s;
+	transition:width 0.3s ease 0s;
+	z-index: -1;
+}
+
+.delete_button:hover::after{
+	content: "";
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	background: #3A4043;
+	-webkit-transition:width 0.6s cubic-bezier(0.52, 1.64, 0.37, 0.66) 0s;
+	-moz-transition:width 0.6s cubic-bezier(0.52, 1.64, 0.37, 0.66) 0s;
+	transition:width 0.6s cubic-bezier(0.52, 1.64, 0.37, 0.66) 0s;
+}
+
+/*主容器*/
+.mainconainer{
+	position: relative;
+	box-sizing: border-box;
+	margin: auto;
+	max-width: 900px;
+}
+
+
+
+/*白色连续盒子容器*/
+div.container {
+	margin: 0px auto;
+	background: white;
+	box-shadow: inset 0 1px 0 0 #dddddd;
+	width: 100%;
+	max-width: 600px;
+	color: #61686b;
+	display: block;
+}
+
+div.midleInformation {
+	color: #61686b;
+	text-align: center;
+	font: "微软雅黑", Helvetica, sans-serif, Arial;
+}
+.LoginPage_topAlign{
+	margin-top:100px;
+}
+
+
+
+
+
+/*form items*/
+div.formBox {
+	padding: 2em;
+	background:white;
+	max-width:330px;
+	width:100%;
+	margin:auto;
+	text-align:left;
+	box-sizing:border-box;
+}
+label.formLabel{
+	display:inline-block;
+	width:20%;
+	float:left;
+}
+input[type="text"] {
+	height: 2em;
+	width: 80%;
+	background-color: rgba(144, 144, 144, 0.15);
+	border: none;
+	padding: 2px;
+	margin: 0px 0px 10px 0px;
+	display: inline-block;
+	font-size: 1em;
+	box-sizing: border-box;
+}
+
+input[type="text"]:focus {
+	border: 1px solid #85B7C9;
+}
+
+input[type="password"] {
+	height: 2em;
+	width: 80%;
+	background-color: rgba(144, 144, 144, 0.15);
+	border: none;
+	padding: 2px;
+	margin: 0px 0px 10px 0px;
+	display: inline-block;
+	font-size: 1em;
+	box-sizing: border-box;
+}
+input[type="submit"] ,.submitButton{
+	height: 2em;
+	padding:2px;
+	font-size: 1em;
+	color: #61686b;
+	letter-spacing:0.25em;
+	margin-left: 0px;
+	border-radius: 1px;
+	background-color: rgba(144, 144, 144, 0.15);
+	border:1px solid #aaa;
+	width:100%;
+	position:relative;
+	text-align: center;
+	transform: translateZ(0);
+	display:inline-block;
+	box-sizing:border-box;
+}
+input[type="submit"]:after,.submitButton:after {
+	
+	content:" ";
+	position:absolute;
+	left:0;
+	top:0;
+	height:100%;
+	width:100%;
+	background:#fff;
+	transform: scaleX(0);
+	transition: transform 0.2s ease-in;
+	z-index: -1;
+	
+}
+
+input[type="submit"]:hover:after,.submitButton:hover:after {
+	
+	background-color:#fff;
+	transform: scaleX(1);
+}
+
+
+textarea {
+	height: 10em;
+	width: 90%;
+	background-color: rgba(144, 144, 144, 0.15);
+	border: none;
+	padding: 2px;
+	margin: 10px 0px;
+	display: inline-block;
+	font-size: 1em;
+	box-sizing: border-box;
+}
+textarea:focus {
+	border: 1px solid #85B7C9;
+}
+/*buttons*/
+.button {
+	background-color: #8cd1a8;
+	color: #ffffff;
+	border: 0px;
+	padding: 2px 1em;
+	margin: 10px 40px;
+	display: inline-block;
+	text-decoration: none;
+	font-size: 1em;
+	border-radius: 2px;
+}
+.button:hover {
+	background-color: #71C894;
+}
+
+.RightSendButton {
+	background-color: #8cd1a8;
+	color: #ffffff;
+	display: inline-block;
+	box-sizing: border-box;
+	border: 0px;
+	padding: 2px 1em;
+	text-decoration: none;
+	font-size: 1em;
+	border-radius: 2px;
+	width: 30%;
+	float: right;
+	height: 3em;
+}
+.RightSendButton:hover {
+	background-color: #71C894;
+}
+
+
+/*带气泡的对话框相关（蓝色） */
+
+div.dialogue {
+	margin: 20px auto;
+	position: relative;
+	width: 100%;
+	max-width: 600px;
+	color: #61686b;
+	display: block;
+	border: 1px solid #6792d5;
+	border-radius: 7px;
+	box-sizing: border-box;
+}
+div.dialogue:after {
+	left: 3.8%;
+	top: 100%;
+	content: " ";
+	position: absolute;
+	pointer-events: none;
+	height: 0;
+	width: 0;
+	border: 10px solid transparent;
+	border-color: rgba(213, 242, 239, 0);
+	border-top-color: #6792d5;
+}
+p.dialogue {
+	text-align: left;
+	padding-left: 10px;
+}
+
+/*色块相关*/
+.colorBlock {
+	height: 50px;
+	display: block;
+}
+.grayBack {
+	background-color: #aaa;
+}
+.blueBack {
+	background-color: #227CC1;
+}
+.greenBack {
+	background-color: #8cd1a8;
+}
+
+/*底部*/
+div.btm {
+	margin-top: 40px;
+	color: #FFFFFF;
+	text-align: center;
+	width: 100%;
+}
+a.btm:link {
+	text-decoration: none;
+	color: #FFFFFF;
+}
+a.btm:visited {
+	text-decoration: none;
+	color: #FFFFFF;
+}
+a.btm:hover {
+	text-decoration: none;
+}
+a.btm:active {
+	text-decoration: none;
+}
+a.left{
+	margin-top:10px;
+	float:left;
+	cursor:pointer;
+	color:#aaa;
+}
+a.left:hover,a.right:hover{
+	color: #61686b;
+}
+a.right{
+	margin-top:10px;
+	float:right;
+	cursor:pointer;
+	color:#aaa;
+}
+
+.error{
+	color:#e92727;
+}
