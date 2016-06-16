@@ -540,23 +540,25 @@ table.list_operation_table{
 	width: 100%;
 }
 table.list_operation_table a{
+	color:#61686b;
 	cursor: pointer;
 	text-decoration: none;
 }
-table.list_operation_table a:hover{
+table.list_operation_table a.blueLink:hover{
 	color: #27b9e9;
 	text-decoration: none;
 }
 table.list_operation_table a:active{
-
+	color:#61686b;
 	text-decoration: none;
 }
 table.list_operation_table a:visited{
-
+	color:#61686b;
 	text-decoration: none;
 }
 
 table.list_operation_table a:link{
+	color:#61686b;
 	text-decoration: none;
 }
 table.list_operation_table a.special:hover{

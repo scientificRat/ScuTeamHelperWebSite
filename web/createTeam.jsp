@@ -111,7 +111,7 @@
                 %>
                         <tr class="listBar">
                         <td><%out.print(team_name);%></td>
-                        <td><%out.print("<a href=team_comments'?team_id="+team_id+"'>查看</a>");%> / <a class="special" href="deleteTeamServlet?<%out.print("team_id="+team_id);%>">删除</a></td>
+                        <td><%out.print("<a class='blueLink' href='team_comments.jsp?team_id="+team_id+"'>查看</a>");%> / <a class="special" href="deleteTeamServlet?<%out.print("team_id="+team_id);%>">删除</a></td>
                         </tr>
                    <% }
                 %>

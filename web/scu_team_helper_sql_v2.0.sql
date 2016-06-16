@@ -18,7 +18,7 @@ create table user_table
     major character varying(20) NOT NULL,
     grade character varying(5) NOT NULL,
     academic_background character varying(8) NOT NULL
-    primary key (user_id)
+    primary key (user_account_name)
 );
 
 create table personal_introduction
@@ -26,7 +26,7 @@ create table personal_introduction
     user_account_name varchar(25),
     email character varying(30) NOT NULL,
     qq character varying(20) NOT NULL,
-    introduction text NOT NULL
+    introduction text NOT NULL,
     primary key (user_account_name),
     foreign key (user_account_name) references user_table
 );
@@ -47,7 +47,7 @@ create table team(
     qq character varying(20),
     team_introduction text,
     primary key (team_id),
-    foreign key (owner_user_account) references user_table(user_account_name)
+    foreign key (owner_user_account) references user_table
 );
 
 create table comments(
@@ -90,7 +90,7 @@ create table team_comments
     content text,
     primary key(comment_id),
     foreign key(team_id) references team,
-    foreign key(sent_user_account_name) references user_table(user_account_name)
+    foreign key(sent_user_account_name) references user_table
 );
 
 create table personal_comments
@@ -101,8 +101,8 @@ create table personal_comments
     sent_time timestamp,
     content text,
     primary key(comment_id),
-    foreign key(master_account_name) references user_table(user_account_name),
-    foreign key(sent_user_account_name) references user_table(user_account_name)
+    foreign key(master_account_name) references user_table,
+    foreign key(sent_user_account_name) references user_table
 );
 
 COMMIT;
