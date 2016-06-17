@@ -37,12 +37,12 @@ public class GeneralDataBaseQueryHelper {
         //query
         try {
             //(realName,gender,college,major,grade,academic_background,qq,email,introduction)
-            PreparedStatement prStat=dbConnection.prepareStatement("SELECT *FROM team_finder NATURAL JOIN personal_introduction NATURAL JOIN user_table WHERE user_account_name=?");
+            PreparedStatement prStat=dbConnection.prepareStatement("SELECT *FROM  personal_introduction NATURAL JOIN user_table WHERE user_account_name=?");
             prStat.setString(1,user_account_name);
             ResultSet resultSet=prStat.executeQuery();
             if (resultSet.next()){
                 ArrayList<String> abilities=new ArrayList<>();
-                prStat=dbConnection.prepareStatement("SELECT *FROM team_finder NATURAL JOIN has_ability WHERE user_account_name=?");
+                prStat=dbConnection.prepareStatement("SELECT *FROM user_table NATURAL JOIN has_ability WHERE user_account_name=?");
                 prStat.setString(1,user_account_name);
                 ResultSet abilitiesResultSet=prStat.executeQuery();
                 while (abilitiesResultSet.next()){
@@ -58,6 +58,49 @@ public class GeneralDataBaseQueryHelper {
                 String QQ=resultSet.getString("qq");
                 String email=resultSet.getString("email");
                 personalInfo=new PersonalInfo(user_account_name, realNameName,gender,college,major,grade,academic_background,introduction,abilities,QQ,email);
+
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        finally {
+            //close the database connection
+            try {
+                dbConnection.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+
+        return personalInfo;
+    }
+
+
+    public static PersonalInfo getBriefPersonalInfo(String user_account_name){
+        PersonalInfo personalInfo=null;
+        Connection dbConnection=getDBConnection();
+        //query
+        try {
+            //(realName,gender,college,major,grade,academic_background,qq,email,introduction)
+            PreparedStatement prStat=dbConnection.prepareStatement("SELECT *FROM  user_table WHERE user_account_name=?");
+            prStat.setString(1,user_account_name);
+            ResultSet resultSet=prStat.executeQuery();
+            if (resultSet.next()){
+                ArrayList<String> abilities=new ArrayList<>();
+                prStat=dbConnection.prepareStatement("SELECT *FROM user_table NATURAL JOIN has_ability WHERE user_account_name=?");
+                prStat.setString(1,user_account_name);
+                ResultSet abilitiesResultSet=prStat.executeQuery();
+                while (abilitiesResultSet.next()){
+                    abilities.add(abilitiesResultSet.getString("ability_name"));
+                }
+                String realNameName=resultSet.getString("realName");
+                String gender=resultSet.getString("gender");
+                String college=resultSet.getString("college");
+                String major=resultSet.getString("major");
+                String grade=resultSet.getString("grade");
+                String academic_background=resultSet.getString("academic_background");
+                personalInfo=new PersonalInfo(user_account_name, realNameName,gender,college,major,grade,academic_background,"",abilities,"","");
 
             }
 

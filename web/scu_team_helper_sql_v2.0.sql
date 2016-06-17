@@ -17,7 +17,7 @@ create table user_table
     college character varying(20) NOT NULL,
     major character varying(20) NOT NULL,
     grade character varying(5) NOT NULL,
-    academic_background character varying(8) NOT NULL
+    academic_background character varying(8) NOT NULL,
     primary key (user_account_name)
 );
 
@@ -50,14 +50,6 @@ create table team(
     foreign key (owner_user_account) references user_table
 );
 
-create table comments(
-    comment_id SERIAL,
-    sent_user_account_name varchar(25),
-    sent_time timestamp,
-    content text,
-    primary key (comment_id),
-    foreign key (sent_user_account_name) references user_table
-);
 
 create table has_ability
 (
@@ -65,20 +57,6 @@ create table has_ability
     ability_name varchar(255),
     primary key (user_account_name,ability_name),
     foreign key (user_account_name) references user_table
-);
-create table team_comments_relations(
-    comment_id integer, 
-    team_id integer,
-    primary key (comment_id),
-    foreign key (team_id) references team,
-    foreign key (comment_id) references comments
-);
-create table personal_comments_relations(
-    comment_id integer,
-    user_account_name integer,
-    primary key (comment_id),
-    foreign key (user_account_name) references user_table,
-    foreign key (comment_id) references comments
 );
 
 create table team_comments

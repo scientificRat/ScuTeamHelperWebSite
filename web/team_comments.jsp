@@ -26,7 +26,7 @@
     if( team_id!=null && !team_id.isEmpty()){
 
         TeamInfo teamInfo=GeneralDataBaseQueryHelper.getTeamInfo(team_id);
-        PersonalInfo pioneerInfo=GeneralDataBaseQueryHelper.getPersonalInfo(teamInfo.getOwnerUserAccount());
+        PersonalInfo pioneerInfo=GeneralDataBaseQueryHelper.getBriefPersonalInfo(teamInfo.getOwnerUserAccount());
         ArrayList<Comment> comments=GeneralDataBaseQueryHelper.getTeamComments(team_id);
 
 %>
