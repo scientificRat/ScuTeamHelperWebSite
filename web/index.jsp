@@ -38,7 +38,7 @@
 <div class="title_bar">
 
     <%if(isLogin){%>
-        <a href="account.jsp"><%out.print(username+",您好");%></a>
+        <a href="account.jsp"><%out.print(username+",您好");%></a> | <a href="logout.jsp">退出</a>
     <%}else{%>
     <a href="login.jsp" class="login_info">立即登录</a>
     <%}%>
