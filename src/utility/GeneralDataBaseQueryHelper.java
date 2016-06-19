@@ -12,14 +12,19 @@ import java.util.ArrayList;
  */
 public class GeneralDataBaseQueryHelper {
 
-    private static final String databaseUrl="jdbc:postgresql://localhost/scu_team_helper";
+//    private static final String databaseUrl="jdbc:postgresql://localhost/scu_team_helper";
+//    private static final String databaseUserName="huangzhengyue";
+//    private static final String databaseUserPassword=null;
+    private static final String databaseUrl="jdbc:postgresql://115.28.68.253:5432/scu_team_helper";
+    private static final String databaseUserName="postgres";
+    private static final String databaseUserPassword="199606128";
 
     public static Connection getDBConnection(){
         Connection dbConnection=null;
         Driver driver=new org.postgresql.Driver();
         try {
             DriverManager.registerDriver(driver);
-            dbConnection=DriverManager.getConnection(databaseUrl,"huangzhengyue",null);
+            dbConnection=DriverManager.getConnection(databaseUrl,databaseUserName,databaseUserPassword);
 
         } catch (SQLException e) {
             for (Throwable t:

@@ -11,7 +11,12 @@ import java.util.ArrayList;
  */
 public class MainDisplayInfoGetter {
 
-    private String databaseUrl="jdbc:postgresql://localhost/scu_team_helper";
+    //    private static final String databaseUrl="jdbc:postgresql://localhost/scu_team_helper";
+//    private static final String databaseUserName="huangzhengyue";
+//    private static final String databaseUserPassword=null;
+    private static final String databaseUrl="jdbc:postgresql://115.28.68.253:5432/scu_team_helper";
+    private static final String databaseUserName="postgres";
+    private static final String databaseUserPassword="199606128";
 
     private Driver driver=null;
 
@@ -38,7 +43,8 @@ public class MainDisplayInfoGetter {
         ArrayList<TeamInfo> teamInfos=null;
         //connect
         try {
-            dbConnection=DriverManager.getConnection(databaseUrl,"huangzhengyue",null);
+            dbConnection=DriverManager.getConnection(databaseUrl,databaseUserName,databaseUserPassword);
+
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -79,7 +85,7 @@ public class MainDisplayInfoGetter {
         ArrayList<PersonalInfo> personalInfos=null;
         //connect
         try {
-            dbConnection=DriverManager.getConnection(databaseUrl,"huangzhengyue",null);
+            dbConnection=DriverManager.getConnection(databaseUrl,databaseUserName,databaseUserPassword);
         } catch (SQLException e) {
             e.printStackTrace();
         }

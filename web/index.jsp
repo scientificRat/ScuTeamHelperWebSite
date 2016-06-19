@@ -11,6 +11,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
+    session.setAttribute("error","");
     MainDisplayInfoGetter mainDisplayInfoGetter=new MainDisplayInfoGetter();
     String username=(String) session.getAttribute("username");
     boolean isLogin=false;
@@ -69,7 +70,7 @@
         <div class="midleInformation">
             <h9>｛ 已有队伍 ｝</h9>
             <p class="specialp">－众里寻你千百度－</p>
-            <a class="search"><img src="images/搜索.png" class="search"></a>
+            <a class="search"><img src="images/search.png" class="search"></a>
         </div>
     </div>
     <%
@@ -82,12 +83,12 @@
 
     <div class="container">
         <div class="midleInformation">
-            <h2><%out.print(teamInfo.getTeamName());%></h2>
+            <h2><pre><%out.print(teamInfo.getTeamName());%></pre></h2>
             <div class="abilityBoxsContainer">
                 <div class="abilityBox"><%out.print(teamInfo.getCompetitionName());%></div>
             </div>
             <p><%out.print(teamInfo.getTeamIntroduction());%></p>
-            <a class="contact" href="team_comments.jsp?team_id=<% out.print(teamInfo.getTeamId());%>"><img src="images/信封.png" class="contact"></a>
+            <a class="contact" href="team_comments.jsp?team_id=<% out.print(teamInfo.getTeamId());%>"><img src="images/envelope.png" class="contact"></a>
         </div>
     </div>
 
@@ -107,7 +108,7 @@
         <div class="midleInformation">
             <h9>｛ 实力选手 ｝</h9>
             <p class="specialp">－我需要一个队伍－</p>
-            <a class="search"><img src="images/搜索.png" class="search"></a>
+            <a class="search"><img src="images/search.png" class="search"></a>
         </div>
     </div>
     <%
@@ -130,7 +131,7 @@
                 %>
             </div>
             <%out.print("<p>"+personalInfo.getIntroduction()+"</p>");%>
-            <a class="contact" href="personal_comments.jsp?master=<% out.print(personalInfo.getUser_account());%>"><img src="images/信封.png" class="contact"></a></div>
+            <a class="contact" href="personal_comments.jsp?master=<% out.print(personalInfo.getUser_account());%>"><img src="images/envelope.png" class="contact"></a></div>
 
 
     </div>
@@ -167,8 +168,9 @@
 <%}%>
 
 
-<div class="btm"> 友情链接：<a class="btm" href="http://tuanwei.scu.edu.cn"> 青春川大团委网站</a> |<a class="btm" href="http://www.scu.edu.cn"> 四川大学</a><br/>
+<div class="btm"> 友情链接：<a class="btm" href="https://github.com/scientificRat/ScuTeamHelperWebSite.git"> 源代码</a> |<a class="btm" href="http://www.scu.edu.cn"> 四川大学</a><br/>
     Copyright © 2015  scientificRat<br/>
 
+</div>
 </body>
 </html>
